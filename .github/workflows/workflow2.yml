@@ -1,1 +1,15 @@
-
+name: Workflow 2
+on: 
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+jobs:
+  Init-Powershell-Modules:
+    name: Worker2
+    runs-on: ubuntu-latest    
+    steps:      
+      - name: Setup PowerShell module cache
+        id: cacher
+        run: |
+          echo "Worker 2"
