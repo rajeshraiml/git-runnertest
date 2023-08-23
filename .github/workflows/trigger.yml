@@ -1,0 +1,20 @@
+name: Trigger Workflows
+on:
+  push:
+    branches:
+      - main
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Workflow 1
+        uses: actions/workflow_run@v2
+        with:
+          workflow: workflow1.yml
+          ref: ${{ github.sha }}
+      
+      - name: Trigger Workflow 2
+        uses: actions/workflow_run@v2
+        with:
+          workflow: workflow2.yml
+          ref: ${{ github.sha }}
